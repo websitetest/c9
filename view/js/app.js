@@ -251,9 +251,19 @@ var App = function() {
                             + data.product.price_decimals 
                             + '</span>';
                 priceTd.innerHTML = html;
+                tr.appendChild(priceTd);
                 
                 var btnTd = create('td');
-                var removeBtn = create('input', {'type': 'button', 'className': 'btn btn-white remove', 'value': '&#215;'});
+                
+                function echoText(str){
+                    var spanEl= document.createElement('span');
+                    spanEl.innerHTML= str;
+                    return spanEl.firstChild.nodeValue;
+                }
+                
+                var val = echoText('&#215;');
+                
+                var removeBtn = create('input', {'type': 'button', 'className': 'btn btn-white remove', 'value': val});
                 addListener(removeBtn, 'click', (function(productId, btn, t) {
                     return function(event) {
                         t.removeProductFromBasket(productId, btn, event);
@@ -262,8 +272,9 @@ var App = function() {
                 
                 btnTd.appendChild(removeBtn);
                 tr.appendChild(btnTd);
-                console.log(basketTable);
-                basketTable.appendChild(tr);
+                
+                var tbody = getElemAllIn(basketTable, 'tbody')[0];
+                tbody.insertBefore(tr, basketTableTotalRow);
                 
                 var msg = byId('added-to-basket');
                 msg.innerHTML += ' ' + productId + ' ' + csrf;
@@ -292,7 +303,8 @@ var App = function() {
             function(res) {
                 
                 var parent = findParent(clickedBtn, 'tr');
-                document.removeChild(parent);
+                
+                parent.parentNode.removeChild(parent);
             },
             function() {
                 alert('Kon product niet verwijderen. Er ging iets fout');
@@ -300,6 +312,8 @@ var App = function() {
             null,
             true
         );
+        
+        req.send();
     };
     
     this.setLoading = function(isLoading) {
@@ -340,6 +354,11 @@ var App = function() {
     };
     
     this.init();
+};
+
+var Basket = function() {
+    
+    
 };
 
 var RangeSlider = function(id) {

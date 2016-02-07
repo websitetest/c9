@@ -71,6 +71,9 @@
                                     <a href="#" class="tab-link">Winkelmand</a>
                                     <div class="rollout-panel">
                                         <div class="rollout-panel-content">
+                                            <p class="alert note open" id="empty-basket-note">
+                                            Uw winkelmandje is nog leeg
+                                            </p>
                                             <table class="basket-table" id="basket-table">
                                                 <tbody>
                                                     <tr>
@@ -93,6 +96,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                            <input type="hidden" name="basket_anti_csrf" id="basket-anti-csrf" value="basket_anti_csrf_token_value" />
                                             <a href="/basket/view" class="btn btn-white">Overzicht winkelmand<span class="arrow arrow-right">&nbsp;</span></a>
                                             <a href="/checkout" class="btn">Naar kassa<span class="arrow arrow-right">&nbsp;</span></a>
                                         </div>
