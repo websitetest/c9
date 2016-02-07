@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Builder</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script type="text/javascript" src="functions.js"></script>
+        <script type="text/javascript" src="Menubar.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+        <div class="menubar" id="top-menubar">
+            <ul class="disp-tablecell">
+                <li><input type="button" class="menubar-btn" value="Bestand" />
+                    <ul class="menubar-menu block-li">
+                        <li>Nieuw...</li>
+                        <li>Nieuw van sjabloon...</li>
+                        <li class="divider"></li>
+                        <li>Openen...</li>
+                        <li>Open recent...</li>
+                    </ul>
+                </li>
+                <li><input type="button" class="menubar-btn" value="Bewerken" />
+                    <ul class="menubar-menu block-li">
+                        <li>Opslaan</li>
+                        <li>Openen...</li>
+                    </ul>
+                </li>
+                <li><input type="button" class="menubar-btn" value="Zoeken" />
+                    <ul class="menubar-menu block-li">
+                        <li>Opslaan</li>
+                        <li>Openen...</li>
+                    </ul></li>
+                <li><input type="button" class="menubar-btn" value="Beeld" />
+                    <ul class="menubar-menu block-li">
+                        <li>Opslaan</li>
+                        <li>Openen...</li>
+                    </ul>
+                </li>
+                <li><input type="button" class="menubar-btn" value="Invoegen" />
+                    <ul class="menubar-menu block-li">
+                        <li>Opslaan</li>
+                        <li>Openen...</li>
+                    </ul>
+                </li>
+                <li><input type="button" class="menubar-btn" value="Tools" />
+                    <ul class="menubar-menu block-li">
+                        <li>Opslaan</li>
+                        <li>Openen...</li>
+                    </ul>
+                </li>
+                <li><input type="button" class="menubar-btn" value="Help" />
+                    <ul class="menubar-menu block-li">
+                        <li>Opslaan</li>
+                        <li>Openen...</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="panels">
+            <div class="panel panel-left">
+                left
+            </div>
+            <div class="panel panel-right">
+                right
+            </div>
+            <div class="panel panel-middle">
+                middle
+            </div>
+        </div>
+        
+        <div class="dialog">
+            <div class="handle">
+                <span class="dialog-title">Nieuwe pagina maken</span>
+                <input type="button" class="dialog-close" value="&#215;" />
+            </div>
+            <div class="dialog-content">
+                
+            </div>
+        </div>
+        
+        <script>
+            (function() {
+                
+                var m = new Menubar('top-menubar');
+            })();
+        </script>
+    </body>
+</html>

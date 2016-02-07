@@ -1,0 +1,208 @@
+<style>
+body {
+	margin: 30px 100px;
+}
+input[type=text], select, textarea {
+	padding: 4px;
+	border: 1px solid #d0d0d0;
+}
+.row {
+	padding: 5px;
+}
+#select-options {
+	display: none;
+}
+</style>
+<script>
+var wrapRow;
+var elemType;
+var elemName;
+var elemId;
+var elemClass;
+var elemValue;
+
+var elemList;
+
+var elems = [];
+
+function init() {
+	
+	wrapRow = byId("wrap-row");
+	elemType = byId("elem-type").options[byId("elem-type").selectedIndex].value;
+	elemName = byId("elem-name").value;
+	elemId = byId("elem-id").value;
+	elemClass = byId("elem-class").value;
+	elemValue = byId("elem-value").value;
+	
+	selectOptions = byId("select-optiontext").value;
+	
+	elemList = byId("elem-table");
+}
+function byId(id) {
+	
+	return document.getElementById(id);
+}
+function generate() {
+	
+	init();
+	
+	var method = byId("method").value;
+	var action = byId("action").value;
+	
+	var h = '<form method="'+method+'" action="'+action+'">';
+	h += "\n";
+	
+	for(var i = 0; i < elems.length; i++) {
+		
+		var e = elems[i];
+		
+		// wrap row
+		if(e.row == true) {
+			h += "\t" + '<div class="row">';
+			h+= "\n\t";
+		}
+		
+		if(e.type == "select") {
+			h += "\t" + "<select ";
+		} else {
+			h += "\t" + '<input type="'+e.type+'" ';
+		}
+		
+		if(e.name != "") {
+			
+			h += 'name="' + e.name + '" ';
+		}
+		
+		if(e.id != "") {
+			
+			h += 'id="' + e.id + '" ';
+		}
+		
+		if(e.class != "") {
+			
+			h += 'class="' + e.class + '" ';
+		}
+		
+		if(e.value != "") {
+			
+			h += 'value="' + e.value + '" ';
+		}
+		
+		if(e.type == "select") {
+			
+			h += ">";
+			
+			var opt = selectOptions.split("\n");
+			for(var n = 0; n < opt.length; n++) {
+				
+				var line = opt[n];
+				
+				var v = line.split("|")[0];
+				var t = line.split("|")[1];
+				
+				h+= "\n\t\t" + '<option value="'+v+'">' + t + '</option>';
+			}
+			
+			h+= "\n</select>\n";
+			
+		} else {
+			
+			h += "/>\n";
+		}
+		
+		if(e.row == true) {
+			h += "\t" + '</div>';
+			h += "\n";
+		}
+		
+		console.log(e.row);
+		console.log(e);
+	}
+	
+	h+= "</form>\n";
+	
+	result.value = h;
+}
+function add() {
+	
+	init();
+	
+	var elem = {"row": wrapRow.checked ? true : false,
+				"type": elemType,
+				"name": elemName,
+				"id": elemId,
+				"class": elemClass,
+				"value": elemValue
+				};
+	elems.push(elem);
+	
+	var tr = elemList.insertRow(-1);
+	tr.insertCell(-1).innerHTML = elemType;
+	tr.insertCell(-1).innerHTML = elemName;
+}
+
+
+function changeForm(elemType) {
+	
+	var selOpt = byId("select-options");
+	
+	if(elemType.toLowerCase() == "select") {
+		
+		selOpt.style.display = "block";
+		byId("elem-value").disabled = true;
+		
+	} else {
+		
+		selOpt.style.display = "none";
+		byId("elem-value").disabled = false;
+	}
+}
+</script>
+<div class="row">
+	<label>Method: <input type="text" id="method" value="post" /></label>
+</div>
+<div class="row">
+	<label>Action: <input type="text" id="action" value="" /></label>
+</div>
+<hr>
+<table id="elem-table">
+	<tr><th>Type</th><th>Name</th></tr>
+</table>
+<div class="input-row">
+	<div class="row">
+		<label><input type="checkbox" id="wrap-row" checked="checked" />Zet in div met class row</label>
+	</div>
+	<div class="row">
+		<label>
+			<select id="elem-type" onchange="changeForm(this.options[this.selectedIndex].value)">
+				<option value="text">Text</option>
+				<option value="password">password</option>
+				<option value="textarea">textarea</option>
+				<option value="select">select</option>
+				<option value="checkbox">checkbox</option>
+			</select>
+		</label>
+	</div>
+	<div class="row">
+		<label>Name: <input type="text" id="elem-name" /></label>
+	</div>
+	<div class="row">
+		<label>Id: <input type="text" id="elem-id" /></label>
+	</div>
+	<div class="row">
+		<label>Class: <input type="text" id="elem-class" /></label>
+	</div>
+	<div class="row">
+		<label>Value: <input type="text" id="elem-value" /></label>
+	</div>
+	
+	<div id="select-options" class="hidden">
+		<textarea id="select-optiontext" cols="100" rows="6">1|text</textarea>
+	</div>
+</div>
+<input type="button" value="Element toevoegen" onclick="add()" />
+<input type="button" value="Genereer formulier" onclick="generate()" />
+<textarea id="result" cols="100" rows="10"></textarea>
+<script>
+init();
+</script>

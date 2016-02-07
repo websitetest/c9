@@ -1,0 +1,180 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    color: #111;
+    font-family: helvetica, verdana, sana-serif;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+.block-li li {
+    display: block;
+}
+.inblock li {
+    display: inline-block;
+}
+.disp-tablecell li {
+    display: table-cell;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    font-family: inherit;
+    font-size: inherit;
+}
+input {
+    padding: 5px 10px;
+}
+input:focus {
+    outline:none;
+}
+hr {
+    border-bottom: 1px solid #d0d0d0;
+}
+.menubar {
+    background: #303030;
+    border-bottom: 1px solid #000;
+    box-shadow: inset 0 0 1px #d0d0d0;
+    font-size: 14px;
+}
+.menubar ul li {
+    position: relative;
+}
+.menubar-btn {
+    background: inherit;
+    padding: 3px 15px;
+    border: 1px solid transparent;
+    color: #fff;
+    font-size: inherit;
+    position: relative;
+}
+.menubar-btn:hover {
+    background: #484848;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+.menubar-btn.menu-open {
+    background: #525252;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: -2px;
+    z-index: 1000;
+}
+.menubar-btn.menu-open:hover {
+    background: #525252;
+}
+.menubar-menu {
+    min-width: 180px;
+    position: absolute;
+    margin-top: 1px;
+    background: #525252;
+    border: 1px solid #000;
+    color: #fff;
+    display: none;
+    box-shadow: 2px 2px 0 rgba(0,0,0,.30);
+    border-radius: 0px 4px 4px 4px;
+}
+.menubar-menu.open {
+    display: block;
+}
+.menubar-menu li {
+    background: inherit;
+    display: block;
+    padding: 4px 15px;
+    margin: 2px 0;
+}
+.menubar-menu li:hover {
+    background: #303030;
+    color: #58acfa;
+}
+.menubar-menu .divider {
+    height: 0px;
+    background: none;
+    margin: 0;
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #808080;
+    padding: 0;
+    margin: 0 3px;
+}
+.menubar-menu .divider:hover {
+    background: none;
+}
+
+/* panels */
+.panels {
+    height: 100%;
+    position: relative;
+}
+.panel {
+    
+    min-height: 100px;
+    background: #808080;
+    position: absolute;
+    box-shadow: inset 0 0 1px #d0d0d0;
+}
+.panel.panel-left {
+    float: left;
+    width: 200px;
+    left: 0px;
+    bottom: 0px;
+    top: 0px;
+}
+.panel.panel-middle {
+    left: 200px;
+    right: 200px;
+    top: 0px;
+    bottom: 0px;
+}
+.panel.panel-right {
+    width: 200px;
+    float: right;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+/* dialog */
+.dialog {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    background: #f2f2f2;
+    display:none;
+}
+.handle {
+    background: #303030;
+    color: #fff;
+    line-height: 25px;
+    padding: 5px 5px 5px 10px;
+}
+.handle:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.dialog-close {
+    width: 26px;
+    height: 26px;
+    padding: 4px;
+    font-weight: bold;
+    color: #fff;
+    background: #000;
+    border: 1px solid #525252;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 20px;
+    float: right;
+}
+.dialog-content {
+    min-width: 250px;
+    min-height: 100px;
+    background: #f2f2f2;
+}

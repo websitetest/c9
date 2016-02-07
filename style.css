@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    color: #111;
+    font-family: helvetica, verdana, sana-serif;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: inherit;
+}
+input {
+    padding: 5px 10px;
+}
+hr {
+    border-bottom: 1px solid #d0d0d0;
+}

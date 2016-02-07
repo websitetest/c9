@@ -1,0 +1,26 @@
+<h2>Pagina bestaat niet</h2>
+<hr />
+<p>
+Onze excuses. De informatie die u wil ophalen, of de pagina die u wil bekijken bestaat niet (meer).
+<p>
+    <div class="row">
+        <a href="/"><span class="arrow arrow-left">&nbsp;</span>Naar de startpagina</a>
+    </div>
+    <div class="row">
+        <a href="#back" id="link-history-back"><span class="arrow arrow-left">&nbsp;</span>Terug naar waar u vandaan kwam</a>
+    </div>
+    <p>
+        <a href="/contact" class="btn btn-white">Een fout melden</a>
+    </p>
+</p>
+<script>
+function init404page() {
+    
+    var link = document.getElementById('link-history-back');
+    link.onclick = function() {
+        
+        history.back();
+    };
+}
+init404page();
+</script>

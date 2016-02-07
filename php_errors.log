@@ -1,0 +1,6 @@
+[04-Feb-2016 16:13:29 UTC] PHP Warning:  include(/home/ubuntu/workspace/view/error-page-404.html): failed to open stream: No such file or directory in /home/ubuntu/workspace/view/index.php on line 151
+[04-Feb-2016 16:13:29 UTC] PHP Stack trace:
+[04-Feb-2016 16:13:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/view/index.php:0
+[04-Feb-2016 16:13:29 UTC] PHP Warning:  include(): Failed opening '/home/ubuntu/workspace/view/error-page-404.html' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/view/index.php on line 151
+[04-Feb-2016 16:13:29 UTC] PHP Stack trace:
+[04-Feb-2016 16:13:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/view/index.php:0
